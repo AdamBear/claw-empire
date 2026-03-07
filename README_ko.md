@@ -10,7 +10,7 @@
 </p>
 
 <p align="center">
-  <img src="https://img.shields.io/badge/version-2.0.2-blue" alt="Releases" />
+  <img src="https://img.shields.io/badge/version-2.0.3-blue" alt="Releases" />
   <a href="https://github.com/GreenSheep01201/claw-empire/actions/workflows/ci.yml"><img src="https://github.com/GreenSheep01201/claw-empire/actions/workflows/ci.yml/badge.svg?branch=main" alt="CI" /></a>
   <img src="https://img.shields.io/badge/node-%3E%3D22-brightgreen" alt="Node.js 22+" />
   <img src="https://img.shields.io/badge/license-Apache%202.0-orange" alt="License" />
@@ -21,7 +21,7 @@
 <p align="center">
   <a href="#빠른-시작">빠른 시작</a> &middot;
   <a href="#ai-installation-guide">AI 설치 가이드</a> &middot;
-  <a href="docs/releases/v2.0.2.md">릴리즈 노트</a> &middot;
+  <a href="docs/releases/v2.0.3.md">릴리즈 노트</a> &middot;
   <a href="#openclaw-integration">OpenClaw 연동</a> &middot;
   <a href="#direct-messenger-without-openclaw">직접 메신저</a> &middot;
   <a href="#dollar-command-logic">$ 명령 로직</a> &middot;
@@ -68,16 +68,14 @@ Claw-Empire는 **CLI**, **OAuth**, **직접 API 키** 방식으로 연결된 AI 
 
 ---
 
-## 최신 릴리즈 (v2.0.2)
+## 최신 릴리즈 (v2.0.3)
 
-- **OpenAPI 계약 드리프트를 CI에서 차단** - `test:ci`에 `openapi:check`를 포함해 라우트와 문서 불일치를 `main` 단계에서 바로 실패시킵니다.
-- **운영 API 핵심 흐름 E2E 추가** - 태스크 실행/중지/주입/재개, 터미널/회의록 조회, `/api/inbox` 디렉티브 웹훅, 프로젝트 경로 헬퍼, CLI 진단, API 프로바이더 CRUD를 CI에서 직접 검증합니다.
-- **문서 엔드포인트와 공개 API 표면 검증 추가** - `/api/docs`, swagger bootstrap, `/api/openapi.json`, contributor-facing 유틸리티 경로를 CI가 직접 확인합니다.
-- **API 문서를 실제 main 표면에 맞춰 최신화** - `docs/api.md`와 `docs/openapi.json`에 task reports, project helpers, subtasks, agent spawn, announcements/directives, GitHub/OAuth/skills/sprites/update-auto 계열을 반영했습니다.
-- **E2E inbox 검증이 로컬 시크릿에 의존하지 않음** - `/api/inbox` 테스트는 개발자 `.env` 대신 비민감 테스트용 secret으로 동작합니다.
-- **PR #49, #52, #55 후속 반영도 같은 릴리즈 라인에 포함** - PR #49는 Discord 채널 OpenAPI 출력과 테스트 격리를 정리했고, PR #55는 API Settings에 프로바이더별 모델 검색을 추가했으며, PR #52는 안전한 범위만 골라 Windows 로컬 개발 실행 스크립트를 포함했습니다.
+- **머지 전에 최종 브랜치 검증 결과를 바로 확인할 수 있습니다** - Diff Modal이 `GET /api/tasks/:id/verify-commit` 결과를 표시해 verdict, 비교 기준 ref, 커밋 수, 변경 파일, 미커밋 파일 상태를 함께 보여줍니다.
+- **작업 완료 보고서에 머지 시점 검증 근거가 남습니다** - 수동 머지 성공 시 `Final branch verification: ...` 로그가 기록되고, 보고서 팝업의 기획 요약 영역에서 그대로 확인할 수 있습니다.
+- **활성 에이전트 목록이 바뀌어도 보고서 얼굴은 sprite로 유지됩니다** - 현재 `agents` 배열에 담당자가 없어도 보고서 payload의 agent 정보로 fallback agent를 복원해 이모지로 내려가지 않습니다.
+- **PR #54에서는 안전한 범위만 선별 반영했습니다** - worktree verification API/UI, `scripts/cleanup-staff.mjs`, 선택적인 `deploy/` self-host 템플릿만 포함했고, task model 변경이나 admin/local-server 확장은 넣지 않았습니다.
 
-- 상세 문서: [`docs/releases/v2.0.2.md`](docs/releases/v2.0.2.md)
+- 상세 문서: [`docs/releases/v2.0.3.md`](docs/releases/v2.0.3.md)
 - API 문서: [`docs/api.md`](docs/api.md), [`docs/openapi.json`](docs/openapi.json)
 - 보안 정책: [`SECURITY.md`](SECURITY.md)
 
