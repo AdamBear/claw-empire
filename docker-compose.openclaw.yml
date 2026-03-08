@@ -11,5 +11,4 @@ services:
       - "8790:8790"
     volumes:
       - ./data:/app/data
-      - /root/.openclaw:/host-openclaw:ro
     working_dir: /app
